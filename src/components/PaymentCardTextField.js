@@ -133,6 +133,10 @@ export default class PaymentCardTextField extends Component {
     }
   }
 
+  componentDidMount() {
+    !this.cardTextFieldRef.focus();
+  }
+
   isFocused = () => TextInputState.currentlyFocusedField() === findNodeHandle(this.cardTextFieldRef)
 
   focus = () => {
@@ -144,7 +148,7 @@ export default class PaymentCardTextField extends Component {
   }
 
   handlePress = () => {
-    this.focus()
+    /* this.focus()*/
   }
 
   handleChange = (event) => {
@@ -162,6 +166,7 @@ export default class PaymentCardTextField extends Component {
     if (onParamsChange) {
       onParamsChange(nativeEvent.valid, nativeEvent.params)
     }
+
   }
 
   setCardTextFieldRef = (node) => {
@@ -170,6 +175,7 @@ export default class PaymentCardTextField extends Component {
 
   // Previously on iOS only
   setParams = (params) => {
+    console.log(params)
     this.cardTextFieldRef.setNativeProps({ params })
   }
 
