@@ -82,6 +82,7 @@ const NativePaymentCardTextField = requireNativeComponent('TPSCardField', Paymen
   },
 })
 
+
 /**
  * @type {import('react').ComponentClass<PaymentCardTextFieldProps>}
  */
@@ -127,8 +128,8 @@ export default class PaymentCardTextField extends Component {
   }
 
   componentWillUnmount() {
-    if (this.isFocused()) {
-      this.blur()
+    if(!this.isFocused){
+      return;
     }
   }
 
